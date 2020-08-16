@@ -1,5 +1,6 @@
 package com.jnu.example.admin.controller;
 
+import com.jnu.example.core.pojo.PageRequestDTO;
 import com.jnu.example.db.admin.entity.User;
 import com.jnu.example.admin.service.impl.UserServiceImpl;
 import com.jnu.example.db.admin.pojo.dto.UserAddRequestDTO;
@@ -15,7 +16,6 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.Positive;
 
 /**
  *  @Author: zy
@@ -29,7 +29,6 @@ import javax.validation.constraints.Positive;
 public class UserController {
     @Autowired
     private UserServiceImpl userService;
-
 
     @ApiOperation(value = "新增用户信息")
     @PostMapping("/add")
@@ -50,12 +49,9 @@ public class UserController {
     }
 
     @ApiOperation(value = "分页获取用户信息")
-    @GetMapping("/list")
-    public CustomizedPageResponseEntity<User> getUserList(@ApiParam(value = "当前页") @Positive(message = "pageNum必须是正整数") @RequestParam(value = "current",defaultValue = "1") Long current,
-                                                              @ApiParam(value = "页大小") @Positive(message = "pageSize必须是正整数") @RequestParam(value = "pageSize",defaultValue = "10") Long pageSize,
-                                                              @ApiParam(value = "查询全部",required = true) @RequestParam(value = "all") Boolean all,
-                                                              @ApiParam(value = "登录账号") @RequestParam(value = "loginName",required = false) String loginName
-                                                             ){
-        return CustomizedPageResponseEntity.success(userService.getUserList(current,pageSize,all,loginName));
+    @PostMapping("/list")
+    public CustomizedPageResponseEntity<User> getUserList(@ApiParam("分页查询") @Valid @RequestBody PageRequestDTO pageRequestDTO){
+        return CustomizedPageResponseEntity.success(userService.getUser(pageRequestDTO.getPageNum(),
+                pageRequestDTO.getPageSize(),pageRequestDTO.getAll(),pageRequestDTO.getConditions()));
     }
 }

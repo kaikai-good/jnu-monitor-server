@@ -9,6 +9,8 @@ import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.jnu.example.admin.service.UserService;
+import com.jnu.example.core.pojo.AdvanceQueryConditionRemoteDTO;
+import com.jnu.example.core.util.JnuWrappersUtil;
 import com.jnu.example.db.admin.entity.User;
 import com.jnu.example.db.admin.pojo.dto.UserAddRequestDTO;
 import com.jnu.example.db.admin.pojo.dto.UserUpdateRequestDTO;
@@ -20,6 +22,8 @@ import com.jnu.example.core.util.JnuEncryptUtil;
 import com.jnu.example.core.util.JnuMybatisPlusPageUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 
 /**
@@ -105,32 +109,28 @@ public class UserServiceImpl implements UserService {
      * @param current: 页码
      * @param pageSize: 每页记录数
      * @param all: 查询所有？ 默认查询全部 如果为true，pageNum和pageSize参数无效
-     * @param loginName: 用户名
+     * @param advanceQueryConditionDTOs: 查询条件
      * @return PageData<BlogUser>:
      */
     @Override
-    public PageData<User> getUserList(Long current, Long pageSize, Boolean all, String loginName) {
-        //条件
-        LambdaQueryWrapper<User> queryWrapper = Wrappers.<User>lambdaQuery().orderByDesc(User::getId);
+    public PageData<User> getUser(Long current, Long pageSize, Boolean all, List<AdvanceQueryConditionRemoteDTO> advanceQueryConditionDTOs) {
+        //构建查询条件
+        LambdaQueryWrapper<User> wrapper = JnuWrappersUtil.<User>lambdaQuery(advanceQueryConditionDTOs,User.class);
+
         //生成分页参数
         Page<User> page = JnuMybatisPlusPageUtil.getPage(current, pageSize, all);
 
-        //用户名
-        if(StrUtil.isNotBlank(loginName)) {
-            queryWrapper = queryWrapper.and(i -> i.like(User::getLoginName, loginName));
-        }
-
         //查询
-        IPage<User> userPage = userService.page(page, queryWrapper);
+        IPage<User> userPage = userService.page(page, wrapper);
 
         //如果为空
         if(CollUtil.isEmpty(userPage.getRecords())){
             return new PageData<>(userPage);
         }
 
-        //密码解密
+        //密码设置为NULL
         for(User user:userPage.getRecords()){
-            user.setPassword(JnuEncryptUtil.decryptFromBase64(user.getPassword()));
+            user.setPassword(null);
         }
 
         return new PageData<>(userPage);

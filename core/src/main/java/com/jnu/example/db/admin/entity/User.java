@@ -5,6 +5,8 @@ import java.io.Serializable;
 
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;
+import com.jnu.example.db.admin.constant.enums.GenderEnum;
+import com.jnu.example.db.admin.constant.enums.GeneralStatusEnum;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
@@ -31,6 +33,9 @@ public class User implements Serializable {
     @ApiModelProperty(value = "人员编号")
     private String id;
 
+    @ApiModelProperty(value = "登录名称")
+    private String loginName;
+
     @ApiModelProperty(value = "姓名")
     private String name;
 
@@ -41,13 +46,13 @@ public class User implements Serializable {
     private Integer age;
 
     @ApiModelProperty(value = "性别")
-    private String gender;
+    private GenderEnum gender;
 
     @ApiModelProperty(value = "部门编号")
-    private Integer departmentId;
+    private String departmentId;
 
     @ApiModelProperty(value = "状态")
-    private String status;
+    private GeneralStatusEnum status;
 
     @ApiModelProperty(value = "照片")
     private String photo;
@@ -60,9 +65,5 @@ public class User implements Serializable {
 
     @ApiModelProperty(value = "地址")
     private String address;
-
-    @ApiModelProperty(value = "登录名称")
-    private String loginName;
-
 
 }
