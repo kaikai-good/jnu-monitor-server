@@ -4,9 +4,8 @@ package com.jnu.example.db.admin.pojo.dto;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 
-import javax.validation.constraints.NotNull;
+import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Pattern;
-import javax.validation.constraints.Positive;
 
 
 /**
@@ -16,8 +15,7 @@ import javax.validation.constraints.Positive;
  */
 @Data
 public class UserUpdateRequestDTO extends UserRequestDTO{
-    @NotNull(message = "用户id不能为空")
-    @Positive(message = "用户id必须是正整数")
+    @NotBlank(message = "用户id不能为空")
     @ApiModelProperty(value = "用户id")
     private Integer id;
 

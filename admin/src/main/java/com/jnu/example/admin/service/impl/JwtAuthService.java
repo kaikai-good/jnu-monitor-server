@@ -26,12 +26,12 @@ import org.springframework.stereotype.Service;
 public class JwtAuthService implements IJwtAuthService {
     //获取用户信息
     @Autowired
-    private IUserDAO userService;
+    private IUserDAO userDAO;
 
     @Override
     public LoginVO login(String loginName, String password) {
         //获取用户信息
-        User user = userService.getOne(Wrappers.<User>lambdaQuery().eq(User::getLoginName,loginName));
+        User user = userDAO.getOne(Wrappers.<User>lambdaQuery().eq(User::getLoginName,loginName));
         if(user == null){
             throw new BusinessException(ResponseCode.USER_ACCOUNT_NOT_EXIST);
         }

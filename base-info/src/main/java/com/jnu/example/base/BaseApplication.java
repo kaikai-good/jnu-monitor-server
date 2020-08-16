@@ -14,8 +14,8 @@ import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 @SpringBootApplication(scanBasePackages={"com.jnu.example"})
 @CoreMapperScan
 @EnableDiscoveryClient
-public class AdminApplication {
+public class BaseApplication {
     public static void main(String[] args) {
-        SpringApplication.run(AdminApplication.class, args);
+        SpringApplication.run(BaseApplication.class, args);
     }
 }

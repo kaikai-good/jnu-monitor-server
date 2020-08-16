@@ -1,7 +1,7 @@
-package com.jnu.example.db.admin.mapper;
+package com.jnu.example.db.base.mapper;
 
-import com.jnu.example.db.admin.entity.Department;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import com.jnu.example.db.base.entity.Department;
 
 /**
  * <p>

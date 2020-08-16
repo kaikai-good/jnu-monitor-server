@@ -1,9 +1,9 @@
-package com.jnu.example.db.admin.service.impl;
+package com.jnu.example.db.base.service.impl;
 
-import com.jnu.example.db.admin.entity.Resources;
-import com.jnu.example.db.admin.mapper.ResourcesMapper;
-import com.jnu.example.db.admin.service.IResourcesDAO;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import com.jnu.example.db.base.entity.Resources;
+import com.jnu.example.db.base.mapper.ResourcesMapper;
+import com.jnu.example.db.base.service.IResourcesDAO;
 import org.springframework.stereotype.Service;
 
 /**

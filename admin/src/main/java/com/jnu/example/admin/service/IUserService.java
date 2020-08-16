@@ -16,8 +16,8 @@ import java.util.List;
  *  @Description: 用户接口
  */
 public interface IUserService {
-    User insertUser(UserAddRequestDTO userAddRequestDTO);
-    Boolean deleteUser(String userId);
-    User updateUser(UserUpdateRequestDTO userUpdateRequestDTO);
+    User insertUser(UserAddRequestDTO addRequestDTO);
+    Boolean deleteUser(String id);
+    User updateUser(UserUpdateRequestDTO updateRequestDTO);
     PageData<User> getUser(Long current, Long pageSize, Boolean all, List<AdvanceQueryConditionRemoteDTO> advanceQueryConditionDTOs);
 }

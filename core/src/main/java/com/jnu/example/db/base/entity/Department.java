@@ -1,4 +1,4 @@
-package com.jnu.example.db.admin.entity;
+package com.jnu.example.db.base.entity;
 
 import java.io.Serializable;
 
@@ -40,6 +40,4 @@ public class Department implements Serializable {
 
     @ApiModelProperty(value = "总人数")
     private Integer totalMembers;
-
-
 }

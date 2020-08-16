@@ -1,9 +1,10 @@
-package com.jnu.example.db.admin.service.impl;
+package com.jnu.example.db.base.service.impl;
 
-import com.jnu.example.db.admin.entity.Department;
-import com.jnu.example.db.admin.mapper.DepartmentMapper;
-import com.jnu.example.db.admin.service.IDepartmentDAO;
+
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import com.jnu.example.db.base.entity.Department;
+import com.jnu.example.db.base.mapper.DepartmentMapper;
+import com.jnu.example.db.base.service.IDepartmentDAO;
 import org.springframework.stereotype.Service;
 
 /**

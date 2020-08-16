@@ -1,4 +1,4 @@
-package com.jnu.example.db.admin.entity;
+package com.jnu.example.db.base.entity;
 
 import java.io.Serializable;
 

@@ -1,7 +1,7 @@
-package com.jnu.example.db.admin.service;
+package com.jnu.example.db.base.service;
 
-import com.jnu.example.db.admin.entity.Department;
 import com.baomidou.mybatisplus.extension.service.IService;
+import com.jnu.example.db.base.entity.Department;
 
 /**
  * <p>
