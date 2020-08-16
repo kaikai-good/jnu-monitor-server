@@ -31,8 +31,8 @@ public class DepartmentController {
 
     @ApiOperation(value = "新增部门信息")
     @PostMapping("/add")
-    public CustomizedResponseEntity<Department> insertDepartment(@ApiParam(value = "部门信息",required = true) @Valid @RequestBody DepartmentAddRequestDTO departmentAddRequestDTO){
-        return CustomizedResponseEntity.success(departmentService.insertDepartment(departmentAddRequestDTO));
+    public CustomizedResponseEntity<Department> insertDepartment(@ApiParam(value = "部门信息",required = true) @Valid @RequestBody DepartmentAddRequestDTO addRequestDTO){
+        return CustomizedResponseEntity.success(departmentService.insertDepartment(addRequestDTO));
     }
 
     @ApiOperation(value = "根据部门id删除部门")
@@ -43,8 +43,8 @@ public class DepartmentController {
 
     @ApiOperation(value = "更新部门信息")
     @PostMapping("/update")
-    public CustomizedResponseEntity<Department> insertDepartment(@ApiParam(value = "部门信息",required = true) @Valid @RequestBody DepartmentUpdateRequestDTO departmentUpdateRequestDTO) {
-        return CustomizedResponseEntity.success(departmentService.updateDepartment(departmentUpdateRequestDTO));
+    public CustomizedResponseEntity<Department> insertDepartment(@ApiParam(value = "部门信息",required = true) @Valid @RequestBody DepartmentUpdateRequestDTO updateRequestDTO) {
+        return CustomizedResponseEntity.success(departmentService.updateDepartment(updateRequestDTO));
     }
 
     @ApiOperation(value = "分页获取部门信息")
