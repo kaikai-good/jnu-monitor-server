@@ -1,4 +1,4 @@
-package com.jnu.example.admin.handler;
+package com.jnu.example.core.handler;
 
 import com.jnu.example.core.constant.enums.IBaseEnum;
 import org.apache.ibatis.type.BaseTypeHandler;
@@ -17,7 +17,6 @@ import java.sql.SQLException;
  * https://blog.csdn.net/qq_26440803/article/details/83451221?utm_medium=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-2.nonecase&depth_1-utm_source=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-2.nonecase
  * Date: 2020/5/21
  */
-
 @MappedTypes(value = IBaseEnum.class)
 public class MybatisEnumTypeHandler<E extends IBaseEnum> extends BaseTypeHandler<E> {
 

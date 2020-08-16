@@ -1,4 +1,4 @@
-package com.jnu.example.admin.config;
+package com.jnu.example.core.config;
 
 
 import org.springframework.boot.web.server.ErrorPage;
@@ -13,7 +13,7 @@ import org.springframework.http.HttpStatus;
  *  @Description: 修改错误页面
  */
 @Configuration
-public class ConfigErrorPage implements ErrorPageRegistrar {
+public class ErrorPageConfig implements ErrorPageRegistrar {
 
     @Override
     public void registerErrorPages(ErrorPageRegistry registry) {
