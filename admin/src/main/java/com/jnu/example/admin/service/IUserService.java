@@ -15,7 +15,7 @@ import java.util.List;
  *  @Date: 2020/4/14 22:43
  *  @Description: 用户接口
  */
-public interface UserService {
+public interface IUserService {
     User insertUser(UserAddRequestDTO userAddRequestDTO);
     Boolean deleteUser(String userId);
     User updateUser(UserUpdateRequestDTO userUpdateRequestDTO);

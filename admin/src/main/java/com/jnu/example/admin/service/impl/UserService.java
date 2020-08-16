@@ -8,7 +8,7 @@ import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
-import com.jnu.example.admin.service.UserService;
+import com.jnu.example.admin.service.IUserService;
 import com.jnu.example.core.pojo.AdvanceQueryConditionRemoteDTO;
 import com.jnu.example.core.util.JnuWrappersUtil;
 import com.jnu.example.db.admin.entity.User;
@@ -32,7 +32,7 @@ import java.util.List;
  *  @Description: 用户业务逻辑
  */
 @Service
-public class UserServiceImpl implements UserService {
+public class UserService implements IUserService {
 
     @Autowired
     private IUserDAO userService;

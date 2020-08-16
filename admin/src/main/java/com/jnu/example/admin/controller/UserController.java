@@ -2,7 +2,7 @@ package com.jnu.example.admin.controller;
 
 import com.jnu.example.core.pojo.PageRequestDTO;
 import com.jnu.example.db.admin.entity.User;
-import com.jnu.example.admin.service.impl.UserServiceImpl;
+import com.jnu.example.admin.service.impl.UserService;
 import com.jnu.example.db.admin.pojo.dto.UserAddRequestDTO;
 import com.jnu.example.db.admin.pojo.dto.UserUpdateRequestDTO;
 import com.jnu.example.core.pojo.CustomizedPageResponseEntity;
@@ -28,7 +28,7 @@ import javax.validation.constraints.NotBlank;
 @Validated
 public class UserController {
     @Autowired
-    private UserServiceImpl userService;
+    private UserService userService;
 
     @ApiOperation(value = "新增用户信息")
     @PostMapping("/add")

@@ -8,6 +8,6 @@ import com.jnu.example.db.admin.pojo.vo.LoginVO;
  * Description: 登录接口
  * Date: 2020/4/17
  */
-public interface JwtAuthService {
+public interface IJwtAuthService {
     LoginVO login(String loginName, String password);
 }

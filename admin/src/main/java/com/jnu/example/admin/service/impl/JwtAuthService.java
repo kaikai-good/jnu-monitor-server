@@ -5,7 +5,7 @@ import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.jnu.example.db.admin.service.IUserDAO;
 import com.jnu.example.db.admin.entity.User;
 import com.jnu.example.db.admin.pojo.vo.LoginVO;
-import com.jnu.example.admin.service.JwtAuthService;
+import com.jnu.example.admin.service.IJwtAuthService;
 import com.jnu.example.core.config.security.JwtTokenUtil;
 import com.jnu.example.core.constant.enums.ResponseCode;
 import com.jnu.example.core.exception.BusinessException;
@@ -23,7 +23,7 @@ import org.springframework.stereotype.Service;
  */
 @Service
 @Slf4j
-public class JwtAuthServiceImpl implements JwtAuthService {
+public class JwtAuthService implements IJwtAuthService {
     //获取用户信息
     @Autowired
     private IUserDAO userService;
