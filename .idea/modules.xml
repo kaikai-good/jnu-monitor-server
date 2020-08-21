@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/admin/admin.iml" filepath="$PROJECT_DIR$/admin/admin.iml" />
+      <module fileurl="file://$PROJECT_DIR$/base-info/base-info.iml" filepath="$PROJECT_DIR$/base-info/base-info.iml" />
+      <module fileurl="file://$PROJECT_DIR$/core/core.iml" filepath="$PROJECT_DIR$/core/core.iml" />
+      <module fileurl="file://$PROJECT_DIR$/db-code-generator/db-code-generator.iml" filepath="$PROJECT_DIR$/db-code-generator/db-code-generator.iml" />
+      <module fileurl="file://$PROJECT_DIR$/jnu-monitor-server.iml" filepath="$PROJECT_DIR$/jnu-monitor-server.iml" />
+      <module fileurl="file://$PROJECT_DIR$/repair/repair.iml" filepath="$PROJECT_DIR$/repair/repair.iml" />
+    </modules>
+  </component>
+</project>
