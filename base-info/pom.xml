@@ -10,7 +10,6 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>base-info</artifactId>
-
     <dependencies>
         <!--   引入spring-boot starter    -->
         <dependency>
@@ -36,7 +35,6 @@
             <artifactId>core</artifactId>
             <version>${project.parent.version}</version>
         </dependency>
-
     </dependencies>
 
     <build>
