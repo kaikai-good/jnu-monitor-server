@@ -13,7 +13,6 @@
         <module>admin</module>
         <module>base-info</module>
         <module>db-code-generator</module>
-        <module>repair</module>
     </modules>
 
     <!-- parent指明继承关系，给出被继承的父项目的具体信息-->
