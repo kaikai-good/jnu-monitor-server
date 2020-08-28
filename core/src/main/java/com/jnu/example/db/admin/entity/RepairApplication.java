@@ -1,12 +1,13 @@
 package com.jnu.example.db.admin.entity;
 
-import java.time.LocalDateTime;
-import java.io.Serializable;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.experimental.Accessors;
+
+import java.io.Serializable;
+import java.time.LocalDateTime;
 
 /**
  * <p>
@@ -43,5 +44,13 @@ public class RepairApplication implements Serializable {
     @ApiModelProperty(value = "是否提交")
     private Integer isSubmitted;
 
+    @ApiModelProperty(value = "创建时间")
+    private LocalDateTime createTime;
+
+    @ApiModelProperty(value = "更新时间")
+    private LocalDateTime updateTime;
+
+    @ApiModelProperty(value = "是否过期")
+    private Integer isExpired;
 
 }
