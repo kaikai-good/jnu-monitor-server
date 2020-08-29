@@ -2,9 +2,11 @@ package com.jnu.example.repair.services.impl;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.jnu.example.db.admin.entity.RepairApplication;
-import com.jnu.example.db.admin.entity.Vehicle;
+
 import com.jnu.example.db.admin.service.IRepairApplicationDAO;
-import com.jnu.example.db.admin.service.IVehicleDAO;
+
+import com.jnu.example.db.base.entity.Vehicle;
+import com.jnu.example.db.base.service.IVehicleDAO;
 import com.jnu.example.repair.services.RepairApplicationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

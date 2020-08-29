@@ -60,7 +60,8 @@ mybatis-plus:
       logic-delete-field: flag  # 全局逻辑删除字段值 3.3.0开始支持
       logic-delete-value: 1     # 逻辑已删除值(默认为 1)
       logic-not-delete-value: 0 # 逻辑未删除值(默认为 0)
-
+  configuration:
+    default-enum-type-handler: com.jnu.example.core.handler.MybatisEnumTypeHandler
 
 upload:
   rootPath: ./uploads
@@ -95,3 +96,7 @@ seata:
       namespace:
       userName: "nacos"
       password: "nacos"
+
+logging:
+  level:
+    com.jnu.example.db.base.mapper: debug
