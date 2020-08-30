@@ -1,7 +1,7 @@
 package com.jnu.example.admin.controller;
 
 import com.jnu.example.db.admin.pojo.vo.LoginVO;
-import com.jnu.example.admin.service.JwtAuthService;
+import com.jnu.example.admin.service.IJwtAuthService;
 import com.jnu.example.core.pojo.CustomizedResponseEntity;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -24,7 +24,7 @@ import javax.validation.constraints.NotBlank;
 @Validated
 public class JwtAuthController {
     @Autowired
-    private JwtAuthService jwtAuthService;
+    private IJwtAuthService jwtAuthService;
 
     @ApiOperation(value = "获取token")
     @GetMapping("/login")

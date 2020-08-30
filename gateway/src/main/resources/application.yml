@@ -1,0 +1,28 @@
+server:
+  port: 8080
+spring:
+  cloud:
+    gateway:
+      routes:
+        - id: base-info
+          uri: lb://base-info
+          predicates:
+            - Path=/baseinfo/**
+          filters:
+            - RewritePath=/baseinfo(?<segement>/?.*), $\{segement}
+        - id: admin
+          uri: lb://admin
+          predicates:
+            - Path=/admin/**
+          filters:
+            - RewritePath=/admin(?<segement>/?.*), $\{segement}
+        - id: repair
+          uri: lb://repair
+          predicates:
+            - Path=/repair/**
+          filters:
+            - RewritePath=/repair(?<segement>/?.*), $\{segement}
+
+    nacos:
+      discovery:
+        server-addr: 127.0.0.1:8848

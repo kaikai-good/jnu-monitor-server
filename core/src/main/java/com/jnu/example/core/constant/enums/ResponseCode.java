@@ -47,7 +47,10 @@ public enum  ResponseCode {
 	HTTP_REQUEST_METHOD_NOT_SUPPORTED(3003,"不支持的HTTP请求方法"),
 	RRQUEST_PARAMETER_MISSING(3004,"请求参数缺失"),
 	PATH_VARIABLE_MISSING(3005,"路径参数缺失"),
-	JSON_PARSE_ERROR(3006,"JSON解析异常");
+	JSON_PARSE_ERROR(3006,"JSON解析异常"),
+
+	//部门相关
+	DEPARTMENT_ALREADY_EXIST(3007, "部门已存在");
 
 	/**
 	 * 状态码

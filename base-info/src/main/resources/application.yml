@@ -1,0 +1,6 @@
+#运行环境
+spring:
+  profiles:
+    active: dev
+logging:
+  config: classpath:log4j2.xml
