@@ -78,5 +78,4 @@ public class JwtAuthService implements IJwtAuthService {
         loginVO.setToken(token);
         return loginVO;
     }
-
 }
