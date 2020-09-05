@@ -46,6 +46,7 @@ public class RepairApplicationServiceImpl implements RepairApplicationService {
     public RepairApplication insertRepairApplication(RepairApplication repairApplication) {
         repairApplication.setId(UUID.randomUUID().toString().replaceAll("-",""));
         repairApplication.setCreateTime(LocalDateTime.now());
+        repairApplication.setUpdateTime(LocalDateTime.now());
         repairApplication.setIsSubmitted(0);
         repairApplication.setIsExpired(0);
         repairApplicationDAO.save(repairApplication);
@@ -89,7 +90,7 @@ public class RepairApplicationServiceImpl implements RepairApplicationService {
      */
     @Override
     public List<RepairApplication> getListApplication() {
-        QueryWrapper<RepairApplication> queryWrapper = new QueryWrapper<RepairApplication>().eq("is_submitted",0);
+        QueryWrapper<RepairApplication> queryWrapper = new QueryWrapper<RepairApplication>().eq("is_submitted",0).eq("is_expired",0);
         List<RepairApplication> list = repairApplicationDAO.list(queryWrapper);
         return list;
     }

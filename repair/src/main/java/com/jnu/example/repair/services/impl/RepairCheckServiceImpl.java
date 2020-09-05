@@ -54,7 +54,7 @@ public class RepairCheckServiceImpl implements RepairCheckService {
      */
     @Override
     public List<RepairPlan> getAllPlans() {
-        List<RepairPlan> list = repairPlanDAO.getBaseMapper().selectList(new QueryWrapper<RepairPlan>().eq("is_submitted",1));
+        List<RepairPlan> list = repairPlanDAO.getBaseMapper().selectList(new QueryWrapper<RepairPlan>().eq("is_submitted",1).eq("check_status",0));
         return list;
     }
 }

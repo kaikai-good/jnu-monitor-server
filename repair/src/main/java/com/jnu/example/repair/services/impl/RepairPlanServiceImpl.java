@@ -14,6 +14,7 @@ import org.springframework.stereotype.Service;
 import java.time.LocalDateTime;
 import java.util.List;
 import java.util.UUID;
+import java.util.function.Consumer;
 
 /**
  * Author:kaikai
@@ -41,6 +42,7 @@ public class RepairPlanServiceImpl implements RepairPlanService {
     public RepairPlan insertRepairPlan(RepairPlan repairPlan) {
         repairPlan.setId(UUID.randomUUID().toString().replaceAll("-",""));
         repairPlan.setCreatTime(LocalDateTime.now());
+        repairPlan.setUpdateTime(LocalDateTime.now());
         repairPlan.setIsSubmitted(0);
         repairPlan.setCheckStatus(0);
         repairPlan.setProcessStatus("0");
@@ -91,7 +93,24 @@ public class RepairPlanServiceImpl implements RepairPlanService {
         RepairPlan repairPlan = new RepairPlan();
         repairPlan.setId(planId);
         repairPlan.setIsSubmitted(1);
+        repairPlan.setCheckStatus(0);
         repairPlanDAO.updateById(repairPlan);
         return repairPlanDAO.getById(planId);
+    }
+
+    /**
+     * 获取未提交的和驳回的计划
+     * @return 计划列表
+     */
+    @Override
+    public List<RepairPlan> notSubmmit() {
+        List<RepairPlan> list = repairPlanDAO.getBaseMapper().selectList(new QueryWrapper<RepairPlan>().eq("is_submitted",0).or().eq("check_status",2));
+        return list;
+    }
+
+    @Override
+    public List<PlanResources> selectPlanResource(String planId) {
+        List<PlanResources> list = resourcesDAO.getBaseMapper().selectList(new QueryWrapper<PlanResources>().eq("plan_id",planId));
+        return list;
     }
 }

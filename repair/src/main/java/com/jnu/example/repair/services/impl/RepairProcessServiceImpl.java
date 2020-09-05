@@ -44,7 +44,7 @@ public class RepairProcessServiceImpl implements RepairProcessService {
         repairPlan.setProcessStatus("1");
         repairPlanDAO.updateById(repairPlan);
         //更改车辆状态:2代表维修中
-        String vehicleId = vehicleDAO.getById(repairApplicationDAO.getById(repairPlanDAO.getById(planId).getApplicationId())).getId();
+        String vehicleId = repairApplicationDAO.getById(repairPlanDAO.getById(planId).getApplicationId()).getVehicleId();
         if(vehicleDAO.getById(vehicleId).getStatus().equals("1")){
             Vehicle vehicle = new Vehicle();
             vehicle.setId(vehicleId);
@@ -75,10 +75,10 @@ public class RepairProcessServiceImpl implements RepairProcessService {
         if(list.isEmpty()){//空的表示一辆车的申请下的所有计划都已经完工
             //更改车辆状态：3代表维修完成
             Vehicle vehicle = new Vehicle();
-            vehicle.setId(vehicleDAO.getById(repairApplicationDAO.getById(repairPlanDAO.getById(planId)).getVehicleId()).getId());
+            vehicle.setId(repairApplicationDAO.getById(repairPlanDAO.getById(planId).getApplicationId()).getVehicleId());
             vehicle.setStatus("3");
             vehicleDAO.updateById(vehicle);
-            //该车的此次申请完成：2表示完成
+            //该车的此次申请完成：1表示完成
             RepairApplication repairApplication = new RepairApplication();
             repairApplication.setId(applicationId);
             repairApplication.setIsExpired(1);
@@ -88,5 +88,10 @@ public class RepairProcessServiceImpl implements RepairProcessService {
              return true;
         }
 
+    }
+
+    @Override
+    public List<RepairPlan> listPlan() {
+        return repairPlanDAO.getBaseMapper().selectList(new QueryWrapper<RepairPlan>().eq("check_status",1));
     }
 }

@@ -56,6 +56,10 @@ public class RepairHandOverServiceImpl implements RepairHandOverService {
         return handOver;
     }
 
+    /**
+     * 完成的申请
+     * @return 申请列表
+     */
     @Override
     public List<RepairApplication> getFinishApplication() {
         QueryWrapper<RepairApplication> queryWrapper = new QueryWrapper<RepairApplication>().eq("is_expired",1);

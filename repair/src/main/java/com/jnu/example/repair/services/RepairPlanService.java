@@ -12,6 +12,8 @@ public interface RepairPlanService {
     Boolean deletetRepairPlan(String planId);
     PlanResources addResource(PlanResources planResources);
     RepairPlan submitPlan(String planId);
+    List<RepairPlan> notSubmmit();
+    List<PlanResources> selectPlanResource(String planId);
 
 
 }

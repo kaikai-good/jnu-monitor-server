@@ -37,6 +37,18 @@ public class ReapirPlanController {
         return CustomizedResponseEntity.success(repairPlanService.addResource(planResources));
     }
 
+    @ApiOperation(value = "查询计划下的维修资源")
+    @PostMapping("/selectResource")
+    public CustomizedResponseEntity<List<PlanResources>> selectResource(@ApiParam(value = "计划id") @RequestBody String planId){
+        return CustomizedResponseEntity.success(repairPlanService.selectPlanResource(planId));
+    }
+
+    @ApiOperation(value = "查询未提交的计划")
+    @GetMapping("/getPlan")
+    public CustomizedResponseEntity<List<RepairPlan>> getPlans(){
+        return CustomizedResponseEntity.success(repairPlanService.notSubmmit());
+    }
+
     @ApiOperation(value = "查询已提交的申请")
     @GetMapping("/getApply")
     public CustomizedResponseEntity<List<RepairApplication>> getApply(){
